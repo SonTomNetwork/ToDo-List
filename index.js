@@ -1,42 +1,29 @@
-const express = require('express')
+const express = require('express');
 const path = require('path');
 const port = 8000;
+const moment = require('moment');
 
 const db = require('./config/mongoose');
-const Contact = require('./models/contact');
+const Todo = require('./models/todo');
 
 const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded());
 app.use(express.static('assets'));
-
-var contactList = [
-    {
-        name: 'Tom',
-        phone: '9899166745',
-    },
-    {
-        name: 'John',
-        phone: '9899166769'
-    },
-    {
-        name: 'John',
-        phone: '9899166769'
-    }
-];
+app.locals.moment = require('moment');
 
 app.get('/', function (req, res) {
 
-    Contact.find({}, function (err, contacts) {
+    Todo.find({}, function (err, tasks) {
         if (err) {
-            console.log("Error in fetching contacts.");
+            console.log("Error in fetching tasks.");
             return;
         }
 
         return res.render('home', {
-            title: 'Contact List',
-            contact_list: contacts
+            title: 'ToDo List',
+            todo_list: tasks
         });
     });
 });
@@ -45,31 +32,26 @@ app.get('/practice', function (req, res) {
     return res.render('practice', { title: 'Practice' });
 });
 
-app.post('/create-contact', function (req, res) {
-    //contactList.push(
-    //    {
-    //        name: req.body.name,
-    //        phone: req.body.phone,
-    //    }
-    //);
-    Contact.create({
+app.post('/create-task', function (req, res) {
+    Todo.create({
         name: req.body.name,
-        phone: req.body.phone,
-    }, function (err, newContact) {
+        deadline: req.body.deadline,
+        category: req.body.category,
+    }, function (err, newTask) {
         if (err) {
-            console.log('Error in creating contact.');
+            console.log('Error in creating task.');
             return;
         }
-        console.log('********', newContact);
+        console.log('********', newTask);
         return res.redirect('back');
     });
 });
 
-app.get('/delete-contact/', function (req, res) {
+app.get('/delete-task/', function (req, res) {
     let id = req.query.id;
-    Contact.findByIdAndDelete(id, function (err) {
+    Todo.findByIdAndDelete(id, function (err) {
         if (err) {
-            console.log('Error in deleting contact.');
+            console.log('Error in deleting TASK.');
             return;
         }
         return res.redirect('back');

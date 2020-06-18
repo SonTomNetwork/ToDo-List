@@ -1,7 +1,9 @@
 body {
-    background-color: midnightblue;
-    color: white;
+    background-color: white;
+    color: black;
+    margin: 0px;
+    padding: 0px;
 }
 a {
-    color: violet;
+    color: blue;
 }

@@ -8,25 +8,39 @@
 </head>
 
 <body>
-    <h1>Contact List</h1>
-    <div>
+    <h1>ToDo List</h1>
+    <div id="form">
+        <form action=" /create-task" method="POST">
+            <input type="text" name="name" placeholder="Tom" required>
+            <input type="date" name="deadline" placeholder="<% moment().format('DD-MM-YYYY'); %>" required>
+            <select name="category">
+                <option value="Life">Life</option>
+                <option value="Work">Work</option>
+                <option value="Personal">Personal</option>
+                <option value="FSamily">Family</option>
+            </select>
+            <button type="submit">Add Task</button>
+        </form>
+    </div>
+    <div id="list">
         <ul>
-            <% for (let i of contact_list) { %>
+            <% for (let i of todo_list) { %>
             <li>
                 <p><%= i.name %></p>
-                <p><%= i.phone %></p>
-                <a href="/delete-contact/?id=<%= i.id %>">
+                <!--<p><%= i.deadline.toISOString().split('T')[0]; %></p>
+                <% const str1 = moment(i.deadline).format("Do MMM") + ', ' +  moment(i.deadline).fromNow(); %>
+                <p><%= str1 %></p>!-->
+                <p><%= moment(i.deadline).format("Do MMM"); %></p>
+                <p><%= moment(i.deadline).fromNow(); %></p>
+                <p><%= i.category %></p>
+                <a href="/delete-task/?id=<%= i.id %>">
                     Delete
                 </a>
             </li>
             <% } %>
         </ul>
     </div>
-    <form action=" /create-contact" method="POST">
-        <input type="text" name="name" placeholder="Tom" required>
-        <input type="number" name="phone" placeholder="69" required>
-        <button type="submit">Add Contact</button>
-    </form>
+
     <script type="text/javascript" src='/home.js'></script>
 </body>
 
