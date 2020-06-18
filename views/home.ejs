@@ -4,23 +4,36 @@
     <title>
         <%= title %>
     </title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;600;800&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4a7a7eca23.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/home.css">
 </head>
 
 <body>
     <h1>ToDo List</h1>
-    <div id="form">
-        <form action=" /create-task" method="POST">
-            <input type="text" name="name" placeholder="Tom" required>
-            <input type="date" name="deadline" placeholder="<% moment().format('DD-MM-YYYY'); %>" required>
-            <select name="category">
+    <form action="/create-task" method="POST" id="form">
+        <div id="formname" class="indiv">
+            What are you going to do?
+            <input class="indata" type="text" name="name" placeholder="Recalibrate the universe" required>
+        </div>
+        <div id="formdeadline" class="indiv">
+            By when?
+            <input class="indata" type="date" name="deadline" placeholder="<% moment().format('DD-MM-YYYY'); %>"
+                required>
+        </div>
+        <div id="formcategory" class="indiv">
+            Area of life?
+            <select class="indata" name="category">
                 <option value="Life">Life</option>
                 <option value="Work">Work</option>
                 <option value="Personal">Personal</option>
                 <option value="FSamily">Family</option>
             </select>
-            <button type="submit">Add Task</button>
-        </form>
+        </div>
+    </form>
+    <div id="buttons">
+        <button type="submit">Add Task</button>
     </div>
     <div id="list">
         <ul>
@@ -40,7 +53,6 @@
             <% } %>
         </ul>
     </div>
-
     <script type="text/javascript" src='/home.js'></script>
 </body>
 
