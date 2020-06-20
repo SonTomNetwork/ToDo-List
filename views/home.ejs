@@ -4,11 +4,11 @@
     <title>
         <%= title %>
     </title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
     <script src="https://kit.fontawesome.com/4a7a7eca23.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/home.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+    </style>
 </head>
 
 <body>
@@ -36,20 +36,18 @@
             <button action="/create-task" id="subbutton" type="submit">Add Task</button>
         </div>
     </form>
-    <div id="list">
-        <ul>
+    <div id="listdiv">
+        <ul id="list">
+            <h2>Tasks</h2>
             <% for (let i of todo_list) { %>
-            <li>
-                <p><%= i.name %></p>
-                <!--<p><%= i.deadline.toISOString().split('T')[0]; %></p>
-                <% const str1 = moment(i.deadline).format("Do MMM") + ', ' +  moment(i.deadline).fromNow(); %>
-                <p><%= str1 %></p>!-->
-                <p><%= moment(i.deadline).format("Do MMM"); %></p>
-                <p><%= moment(i.deadline).fromNow(); %></p>
-                <p><%= i.category %></p>
-                <a href="/delete-task/?id=<%= i.id %>">
-                    Delete
-                </a>
+            <li class="listitem">
+                <div class="litname"><%= i.name %></div>
+                <div class="litdate"><%= moment(i.deadline).format("Do MMM"); %></div>
+                <div class="littime"><%= moment(i.deadline).fromNow(); %></div>
+                <div class="litcategory <%= i.category %>"><%= i.category %></div>
+                <div class="litdel"><a href="/delete-task/?id=<%= i.id %>">
+                        <i class="fas fa-flag-checkered"></i>
+                    </a></div>
             </li>
             <% } %>
         </ul>
