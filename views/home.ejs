@@ -4,7 +4,8 @@
     <title>
         <%= title %>
     </title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;600;800&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/4a7a7eca23.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/home.css">
@@ -28,13 +29,13 @@
                 <option value="Life">Life</option>
                 <option value="Work">Work</option>
                 <option value="Personal">Personal</option>
-                <option value="FSamily">Family</option>
+                <option value="Family">Family</option>
             </select>
         </div>
+        <div id="buttondiv" class="indiv">
+            <button action="/create-task" id="subbutton" type="submit">Add Task</button>
+        </div>
     </form>
-    <div id="buttons">
-        <button type="submit">Add Task</button>
-    </div>
     <div id="list">
         <ul>
             <% for (let i of todo_list) { %>
