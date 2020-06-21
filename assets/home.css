@@ -21,7 +21,6 @@ body {
 }
 #formname {
     grid-area: 1 / 1 / 2 / 3;
-    height: 65px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -102,6 +101,8 @@ body {
     background-color: rgba(0, 0, 0, .05);
 }
 
+
+/*List Styling*/
 #listdiv{
     width: 80vw;
 }
@@ -198,4 +199,137 @@ h2{
 }
 .family {
     color: indigo;
+}
+
+@media only screen and (max-device-width : 600px) {
+    #form {
+        display: flex;
+        flex-direction: column;
+        width: 95vw;
+    }
+    #formdeadline {
+        border-bottom: 2px solid rgba(0, 0, 0, .3);
+        border-right: 0px;
+    }
+    #listdiv{
+        width: 93vw;
+    }
+    .indiv {
+        font-size: 40px;
+    }
+    .indata {
+        margin-top: 15px;
+        font-size: 45px;
+    }
+    #formname {
+        padding: 20px;
+    }
+    #formdeadline {
+        padding: 20px;
+    }
+    #formcategory {
+        padding: 20px;
+    }
+    #buttondiv {
+        padding: 20px;
+    }
+    #subbutton {
+        font-size: 40px;
+        width: 260px;
+        padding: 15px;
+        border-radius: 50px;
+    }
+    .litname {
+        padding-left: 0px;
+        font-size: 40px;
+    }
+    .litdate {
+        padding-left: 0px;
+        font-size: 40px;
+    }
+    .littime {
+        padding-left: 0px;
+        font-size: 30px;
+    }
+    .litcategory {
+        padding-left: 0px;
+        font-size: 30px;
+        opacity: 1;
+    }
+    .litdel {
+        font-size: 40px;
+    }
+    h1 {
+        font-size: 90px;
+    }
+    h2 {
+        font-size: 60px;
+        margin-bottom: -10px;
+    }
+}
+@media only screen and (max-width : 600px) {
+    #form {
+        display: flex;
+        flex-direction: column;
+        width: 95vw;
+    }
+    #formdeadline {
+        border-bottom: 2px solid rgba(0, 0, 0, .3);
+        border-right: 0px;
+    }
+    #listdiv{
+        width: 90vw;
+    }
+    /*.indiv {
+        font-size: 40px;
+    }
+    .indata {
+        margin-top: 15px;
+        font-size: 45px;
+    }
+    #formname {
+        padding: 20px;
+    }
+    #formdeadline {
+        padding: 20px;
+    }
+    #formcategory {
+        padding: 20px;
+    }
+    #buttondiv {
+        padding: 20px;
+    }
+    #subbutton {
+        font-size: 40px;
+        width: 260px;
+        padding: 15px;
+        border-radius: 50px;
+    }
+    .litname {
+        padding-left: 0px;
+        font-size: 40px;
+    }
+    .litdate {
+        padding-left: 0px;
+        font-size: 40px;
+    }
+    .littime {
+        padding-left: 0px;
+        font-size: 30px;
+    }
+    .litcategory {
+        padding-left: 0px;
+        font-size: 30px;
+        opacity: 1;
+    }
+    .litdel {
+        font-size: 40px;
+    }
+    h1 {
+        font-size: 90px;
+    }
+    h2 {
+        font-size: 60px;
+        margin-bottom: -10px;
+    }*/
 }

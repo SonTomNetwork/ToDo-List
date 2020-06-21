@@ -28,10 +28,6 @@ app.get('/', function (req, res) {
     });
 });
 
-app.get('/practice', function (req, res) {
-    return res.render('practice', { title: 'Practice' });
-});
-
 app.post('/create-task', function (req, res) {
     Todo.create({
         name: req.body.name,
